@@ -9,16 +9,13 @@ public class DatabaseConnection {
     public static Connection getConnection() {
         if (connection == null) {
             try {
-                connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/employeedb");
+                connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/employeedata?useUnicode=true&characterEncoding=UTF-8", "root", "MPRoot");
             } catch (SQLException e) {
-                System.out.println("Connection failed");
                 e.printStackTrace();
+                System.out.println("Connection failed");
             }
-            return connection;
         }
-        else {
-            return connection;
-        }
+        return connection;
     }
     public static void closeConnection() {
         try {
